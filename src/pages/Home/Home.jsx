@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { HomeHeader } from "../../components/Home/HomeHeader";
+import { HomeMain } from "../../components/Home/HomeMain";
 
 /*
 - 사용자 회원가입
@@ -14,7 +15,9 @@ const Home = () => {
     <div className="container">
       <HomeHeader />
 
-      <section>{/* main */}</section>
+      <section>
+        <HomeMain />
+      </section>
 
       <section>{/* footer */}</section>
     </div>
