@@ -1,13 +1,14 @@
 import React from "react";
 import "./Post.css";
 
-export const Post = () => {
+export const Post = ({ title, content, category }) => {
   return (
     <div className="post-box">
       <div className="post-title-btn-container">
         <div className="post-title-user-container">
-          <h3>Post Title</h3>
-          <span className="user-name">John Doe</span> {/* 사용자 이름 추가 */}
+          <h3>{title}</h3>
+          <span className="user-name">{category}</span>{" "}
+          {/* 일단 카테고리 가져오기 -> 유저 정보에 대한 거 가져와야 함. */}
         </div>
         <div className="post-actions">
           <button className="button">Edit</button>
@@ -15,7 +16,7 @@ export const Post = () => {
         </div>
       </div>
 
-      <p>This is a sample post description.</p>
+      <p>{content}</p>
     </div>
   );
 };
