@@ -5,7 +5,6 @@
   padding: 20px 50px;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
-  height: 100vh; /* 전체 화면 높이 */
   display: flex; /* Flexbox 사용 */
   flex-direction: column;
 }

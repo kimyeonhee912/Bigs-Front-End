@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import { HomeHeader } from "../../components/Home/HomeHeader";
 import { HomeMain } from "../../components/Home/HomeMain";
+import { HomeFooter } from "../../components/Home/HomeFooter";
 
 /*
 - 사용자 회원가입
@@ -19,7 +20,9 @@ const Home = () => {
         <HomeMain />
       </section>
 
-      <section>{/* footer */}</section>
+      <section>
+        <HomeFooter />
+      </section>
     </div>
   );
 };
