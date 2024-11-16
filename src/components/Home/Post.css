@@ -1,0 +1,60 @@
+/* Post box styling */
+.post-box {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* width: 100%;
+    max-width: 800px; */
+  justify-content: center; /* 수평 중앙 정렬 */
+}
+
+.post-title-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.post-title-user-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Title and action buttons row styling */
+.post-box h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* Post action buttons */
+.post-actions .button {
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-actions .button:hover {
+  background-color: #0056b3;
+}
+
+/* Post description styling */
+.post-box p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
