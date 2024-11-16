@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PostCreatePage.css"; // 스타일을 추가할 경우
+import "./PostCreatePage.css";
 
 const PostCreatePage = () => {
   const [title, setTitle] = useState("");
@@ -10,13 +10,11 @@ const PostCreatePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 폼 필드 검증
     if (!title || !content) {
       setErrorMessage("제목과 내용을 모두 입력해주세요.");
       return;
     }
 
-    // 게시물 데이터 처리 로직 (예: 서버에 전송)
     const postData = {
       title,
       content,
@@ -35,7 +33,7 @@ const PostCreatePage = () => {
   return (
     <div className="post-create-container">
       <h2 className="post-create-header">게시물 작성</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="post-create-Form" onSubmit={handleSubmit}>
         <div className="post-create-label-input">
           <label className="post-create-label" htmlFor="category">
             카테고리
