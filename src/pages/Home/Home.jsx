@@ -1,8 +1,6 @@
 import React from "react";
 import "./Home.css";
-import { HomeHeader } from "../../components/Home/HomeHeader";
 import { HomeMain } from "../../components/Home/HomeMain";
-import { HomeFooter } from "../../components/Home/HomeFooter";
 
 /*
 - 사용자 회원가입
@@ -14,15 +12,7 @@ import { HomeFooter } from "../../components/Home/HomeFooter";
 const Home = () => {
   return (
     <div className="container">
-      <HomeHeader />
-
-      <section>
-        <HomeMain />
-      </section>
-
-      <section>
-        <HomeFooter />
-      </section>
+      <HomeMain />
     </div>
   );
 };
