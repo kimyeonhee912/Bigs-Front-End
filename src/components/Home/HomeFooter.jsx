@@ -24,11 +24,11 @@ export const HomeFooter = () => {
         </div>
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>Email: info@example.com</p>
+          <p>yyeonhee912@naver.com</p>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 YourWebsite. All rights reserved.</p>
+        <p>&copy; 2024 yeonhee. All rights reserved.</p>
       </div>
     </footer>
   );
