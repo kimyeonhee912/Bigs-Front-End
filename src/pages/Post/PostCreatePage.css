@@ -16,7 +16,7 @@
 }
 
 /* 폼 스타일 */
-form {
+.post-create-Form {
   width: 100%;
   max-width: 80%;
   padding: 20px;
@@ -72,7 +72,6 @@ form {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: auto; /* 오른쪽 정렬 */
-  outline: none;
 }
 
 .post-create-button:hover {
