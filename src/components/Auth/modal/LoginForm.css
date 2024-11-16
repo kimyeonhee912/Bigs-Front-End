@@ -1,0 +1,87 @@
+/* 전체 폼 컨테이너 */
+.login-form-container {
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 헤더 텍스트 스타일 */
+.login-form-header {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* 레이블 스타일 */
+.login-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* 입력 필드 스타일 */
+.login-form-input {
+  width: 95%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.login-form-input:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* 에러 메시지 */
+.login-form-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #e74c3c;
+  text-align: center;
+}
+
+/* 버튼 스타일 */
+.login-form-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+.login-form-button:hover {
+  background-color: #0056b3;
+}
+
+/* 하단 링크 스타일 */
+.login-form-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #777;
+}
+
+.login-form-footer a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-form-footer a:hover {
+  color: #0056b3;
+}

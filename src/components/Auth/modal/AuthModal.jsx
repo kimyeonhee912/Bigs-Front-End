@@ -7,7 +7,7 @@ export const AuthModal = ({ isModalOpen, onModalClose, children }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <div className="flex justify-end mb-1">
+        <div className="modal-close-container">
           <button onClick={onModalClose} className="modal-close-button">
             닫기
           </button>

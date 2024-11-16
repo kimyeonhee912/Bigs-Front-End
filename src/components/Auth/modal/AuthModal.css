@@ -1,45 +1,58 @@
-/* 모달 배경 스타일 */
+/* 모달 오버레이 */
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 50;
-  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
 }
 
-/* 모달 컨테이너 스타일 */
+/* 모달 컨테이너 */
 .modal-container {
-  background-color: white;
-  padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
   width: 100%;
-  max-width: 480px;
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
 }
 
-/* 닫기 버튼 스타일 */
+.modal-close-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+/* 모달 닫기 버튼 */
 .modal-close-button {
-  font-size: 14px;
-  color: #ff4d4f;
-  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 16px;
   font-weight: bold;
-  align-self: flex-end;
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .modal-close-button:hover {
-  color: #d9363e;
+  color: #0056b3;
 }
 
-/* 추가적인 애니메이션  */
-.modal-container.enter {
-  transform: scale(1.05);
-}
-
-.modal-container.leave {
-  transform: scale(0.95);
+/* 모달 등장 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

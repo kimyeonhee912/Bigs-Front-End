@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HomeHeader.css";
-import { AuthModal } from "../Auth/modal/AuthModal";
+import { User } from "../Auth/User";
 
 export const HomeHeader = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -18,6 +18,7 @@ export const HomeHeader = () => {
             className="button"
             onClick={() => {
               openModal();
+              setCurrentForm("signup");
             }}
           >
             Sign Up
@@ -26,13 +27,18 @@ export const HomeHeader = () => {
             className="button"
             onClick={() => {
               openModal();
+              setCurrentForm("login");
             }}
           >
             Log In
           </button>
         </div>
       </header>
-      <AuthModal isModalOpen={isModalOpen} onModalClose={closeModal} />
+      <User
+        isModalOpen={isModalOpen}
+        onModalClose={closeModal}
+        currentForm={currentForm}
+      />
     </>
   );
 };
