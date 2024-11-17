@@ -1,18 +1,42 @@
 import React, { useState } from "react";
 import "./LoginForm.css";
+import axios from "axios";
 
 export const LoginForm = ({ closeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (email === "" || password === "") {
       setErrorMessage("이메일과 비밀번호를 입력해주세요.");
       return;
     }
-    closeModal();
+
+    try {
+      const response = await axios.post(
+        "https://front-mission.bigs.or.kr/auth/signin",
+        { username: email, password }
+      );
+
+      const { accessToken, refreshToken } = response.data;
+
+      if (accessToken && refreshToken) {
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        console.log("로그인 성공: 토큰이 저장되었습니다.");
+        closeModal();
+      } else {
+        setErrorMessage("토큰이 없습니다.");
+      }
+    } catch (error) {
+      console.error("로그인 실패:", error);
+      setErrorMessage(
+        "로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요."
+      );
+    }
   };
 
   return (
