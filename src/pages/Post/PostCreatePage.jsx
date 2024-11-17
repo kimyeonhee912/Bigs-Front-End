@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./PostCreatePage.css";
+import axios from "axios";
+import { getToken } from "../../config/token";
 
 const PostCreatePage = () => {
   const [title, setTitle] = useState("");
@@ -7,27 +9,39 @@ const PostCreatePage = () => {
   const [category, setCategory] = useState("NOTICE");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = getToken();
 
     if (!title || !content) {
       setErrorMessage("제목과 내용을 모두 입력해주세요.");
       return;
     }
 
-    const postData = {
-      title,
-      content,
-      category,
-    };
+    try {
+      const requestData = { title, content, category };
+      const response = await axios.post(
+        "https://front-mission.bigs.or.kr/boards",
+        requestData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-    console.log("게시물 생성:", postData);
-
-    // 성공적으로 제출 후 페이지 리셋
-    setTitle("");
-    setContent("");
-    setCategory("NOTICE");
-    setErrorMessage("");
+      if (response.status === 200) {
+        console.log("게시물 생성 성공:", response.data);
+        setTitle("");
+        setContent("");
+        setCategory("NOTICE");
+        setErrorMessage("");
+        alert("게시물이 성공적으로 작성되었습니다.");
+      }
+    } catch (error) {
+      console.error("게시물 생성 실패:", error);
+      setErrorMessage("게시물 작성 중 오류가 발생했습니다.");
+    }
   };
 
   return (

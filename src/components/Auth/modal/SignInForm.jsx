@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SignupForm.css";
+import axios from "axios";
 
 export const SignupForm = ({ closeModal }) => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ export const SignupForm = ({ closeModal }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -18,8 +19,20 @@ export const SignupForm = ({ closeModal }) => {
 
     // 회원가입 API 요청
     const formData = { username, name, password, confirmPassword };
-    console.log("회원가입 데이터", formData);
-    closeModal();
+    try {
+      const response = await axios.post(
+        "https://front-mission.bigs.or.kr/auth/signup",
+        formData
+      );
+
+      // 성공 시
+      setErrorMessage("");
+      closeModal();
+    } catch (error) {
+      const errorResponse =
+        error.response?.data?.message || "회원가입 요청에 실패했습니다.";
+      setErrorMessage(errorResponse);
+    }
   };
 
   return (
