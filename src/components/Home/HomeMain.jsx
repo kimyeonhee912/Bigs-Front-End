@@ -9,15 +9,22 @@ export const HomeMain = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [posts, setPosts] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [posts, setPosts] = useState([
+    {
+      id: 1,
+      title: "Sample Post Title",
+      content: "This is a sample post content for testing.",
+      boardCategory: "NOTICE",
+      imageUrl: "",
+      createdAt: "2024-11-12T10:00:00.000Z",
+    },
+  ]); // 초기 목데이터 추가
+  const [totalPages, setTotalPages] = useState(1); // 페이지 1로 설정
   const postsPerPage = 10;
 
-  // 페이지별로 보여줄 데이터 계산
   const indexOfLastPost = (currentPage + 1) * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  // 페이지 이동 핸들러
   const handlePrevPage = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 1);
   };
@@ -30,11 +37,17 @@ export const HomeMain = () => {
     navigate("/create-post");
   };
 
+  const handleDeletePost = (id) => {
+    setPosts(posts.filter((post) => post.id !== id));
+  };
+
   // 게시글 데이터 요청
   useEffect(() => {
     const token = getToken();
     setIsLoggedIn(!!token);
 
+    // 서버 요청 대신 mock데이터로 변경
+    /*
     const fetchPosts = async () => {
       try {
         const response = await axios.get(
@@ -53,6 +66,7 @@ export const HomeMain = () => {
     };
 
     fetchPosts();
+    */
   }, [currentPage]);
 
   return (
@@ -67,10 +81,11 @@ export const HomeMain = () => {
         {posts.map((post) => (
           <Post
             key={post.id}
+            id={post.id}
             title={post.title}
             content={post.content}
             category={post.boardCategory}
-            imageUrl={post.imageUrl}
+            onDelete={handleDeletePost} // 삭제 핸들러 전달
           />
         ))}
 

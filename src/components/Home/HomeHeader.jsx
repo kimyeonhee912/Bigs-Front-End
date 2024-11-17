@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./HomeHeader.css";
 import { User } from "../Auth/User";
+import { useNavigate } from "react-router-dom";
 
 export const HomeHeader = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentForm, setCurrentForm] = useState("login");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,10 +23,16 @@ export const HomeHeader = () => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <header className="home-header">
-        <p>Bigs</p>
+        <p onClick={handleLogoClick} style={{ cursor: "pointer" }}>
+          Bigs
+        </p>
         <div className="auth-buttons">
           {isLoggedIn ? (
             <button className="button" onClick={handleLogout}>

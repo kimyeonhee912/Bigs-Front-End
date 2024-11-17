@@ -4,19 +4,20 @@ import Home from "./pages/Home/Home";
 import PostCreatePage from "./pages/Post/PostCreatePage";
 import { HomeHeader } from "./components/Home/HomeHeader";
 import { HomeFooter } from "./components/Home/HomeFooter";
+import { HomeMain } from "./components/Home/HomeMain";
 
 function App() {
   return (
-    <div className="App">
-      <HomeHeader />
-      <Router>
+    <Router>
+      <div className="App">
+        <HomeHeader />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="create-post" element={<PostCreatePage />} />
         </Routes>
-      </Router>
-      <HomeFooter />
-    </div>
+        <HomeFooter />
+      </div>
+    </Router>
   );
 }
 
