@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LoginForm.css";
 import axios from "axios";
 
@@ -6,6 +6,32 @@ export const LoginForm = ({ closeModal, onLoginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const refreshAccessToken = async (refreshToken) => {
+    try {
+      const response = await axios.post(
+        "https://front-mission.bigs.or.kr/auth/refresh",
+        { refreshToken }
+      );
+
+      const { accessToken, refreshToken: newRefreshToken } = response.data;
+
+      if (accessToken && newRefreshToken) {
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", newRefreshToken);
+        console.log("리프레시 토큰으로 새로운 액세스 토큰을 받았습니다.");
+        return accessToken;
+      } else {
+        throw new Error("새로운 토큰을 받을 수 없습니다.");
+      }
+    } catch (error) {
+      console.error("리프레시 토큰 요청 실패:", error);
+      setErrorMessage(
+        "리프레시 토큰 요청에 실패했습니다. 다시 로그인 해주세요."
+      );
+      return null;
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,6 +46,7 @@ export const LoginForm = ({ closeModal, onLoginSuccess }) => {
         "https://front-mission.bigs.or.kr/auth/signin",
         { username: email, password }
       );
+      console.log("🚀 ~ handleSubmit ~ response:", response);
 
       const { accessToken, refreshToken } = response.data;
 
@@ -29,14 +56,31 @@ export const LoginForm = ({ closeModal, onLoginSuccess }) => {
         console.log("로그인 성공: 토큰이 저장되었습니다.");
         onLoginSuccess();
         closeModal();
+
+        setInterval(async () => {
+          const refreshToken = localStorage.getItem("refreshToken");
+          if (refreshToken) {
+            await refreshAccessToken(refreshToken);
+          }
+        }, 3600000); //1시간마다
       } else {
         setErrorMessage("토큰이 없습니다.");
       }
     } catch (error) {
       console.error("로그인 실패:", error);
-      setErrorMessage(
-        "로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요."
-      );
+
+      const refreshToken = localStorage.getItem("refreshToken");
+      if (refreshToken) {
+        const newAccessToken = await refreshAccessToken(refreshToken);
+        if (newAccessToken) {
+          onLoginSuccess();
+          closeModal();
+        }
+      } else {
+        setErrorMessage(
+          "로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요."
+        );
+      }
     }
   };
 
