@@ -16,7 +16,6 @@ export const HomeHeader = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     setIsLoggedIn(false);
-    alert("로그아웃 되었습니다.");
   };
 
   const openModal = () => setModalOpen(true);

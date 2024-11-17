@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import axios from "axios";
 
-export const LoginForm = ({ closeModal }) => {
+export const LoginForm = ({ closeModal, onLoginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -27,6 +27,7 @@ export const LoginForm = ({ closeModal }) => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
         console.log("로그인 성공: 토큰이 저장되었습니다.");
+        onLoginSuccess();
         closeModal();
       } else {
         setErrorMessage("토큰이 없습니다.");
