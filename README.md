@@ -1,5 +1,7 @@
 # 프로젝트: BIGS 홈페이지 제작
 
+- 제작 시간: 11/15-11/18(총 4일, 12시간 소요)
+
 ## 실행방법
 
 이 프로젝트를 로컬에서 실행하려면 아래 단계를 따라주세요.
@@ -12,18 +14,26 @@ Git: 설치 및 설정
 
 ### 2. 프로젝트 클론
 
-`git clone https://github.com/사용자명/bigs-homepage.git
-cd bigs-homepage`
+```bash
+git clone https://github.com/kimyeonhee912/Bigs-Front-End.git
+cd Bigs-Front-End
+```
 
 ### 3. 패키지 설치
 
 프로젝트에서 필요한 의존성을 설치합니다.
-`yarn install`
+```bash
+npm install
+```
 
 ### 5. 개발 서버 실행
 
 아래 명령어를 실행하여 개발 서버를 시작합니다.
-`npm run start`
+```bash
+npm run start
+```
+
+---
 
 ## Bigs 설명
 
