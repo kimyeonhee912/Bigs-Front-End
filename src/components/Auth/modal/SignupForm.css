@@ -1,0 +1,94 @@
+/* SignupForm.css */
+
+/* 전체 폼 컨테이너 */
+.signup-form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0px 20px 20px 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.signup-form-lable-input {
+  margin-bottom: 10px;
+}
+
+/* 헤더 텍스트 스타일 */
+.signup-form-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+  text-align: center;
+}
+
+/* 레이블 스타일 */
+.signup-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* 입력 필드 스타일 */
+.signup-form-input {
+  width: 95%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.signup-form-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* 버튼 스타일 */
+.signup-form-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+.signup-form-button:hover {
+  background-color: #0056b3;
+}
+
+/* 에러 메시지 */
+.signup-form-error {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #d9534f;
+}
+
+/* 하단 링크 스타일 */
+.signup-form-footer {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+}
+
+.signup-form-footer a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-form-footer a:hover {
+  color: #0056b3;
+}

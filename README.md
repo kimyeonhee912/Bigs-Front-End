@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# 프로젝트: BIGS 홈페이지 제작
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 실행방법
 
-## Available Scripts
+이 프로젝트를 로컬에서 실행하려면 아래 단계를 따라주세요.
 
-In the project directory, you can run:
+### 1. 필수 조건
 
-### `npm start`
+Node.js: v16 이상
+npm: 최신 버전
+Git: 설치 및 설정
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. 프로젝트 클론
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`git clone https://github.com/사용자명/bigs-homepage.git
+cd bigs-homepage`
 
-### `npm test`
+### 3. 패키지 설치
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+프로젝트에서 필요한 의존성을 설치합니다.
+`yarn install`
 
-### `npm run build`
+### 5. 개발 서버 실행
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+아래 명령어를 실행하여 개발 서버를 시작합니다.
+`npm run start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Bigs 설명
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 기능 목록
 
-### `npm run eject`
+1. 로그인/회원가입
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 사용자가 회원가입 및 로그인을 통해 인증을 받을 수 있음.
+- 토큰 기반 인증 시스템(JWT 사용).
+- UI 설계 및 서버 연결 완료.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. 메인 홈
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 서비스의 주요 내용을 표시하는 화면.
+- 현재 별도 페이지와 연결되지 않음.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. 게시판 기능
 
-## Learn More
+- 글쓰기: 게시물 작성 UI와 서버 연결 구현.
+- 수정/삭제: 추후 서버 연결 및 UI 구현 예정.
+- 글 조회: 서버에서 게시물 데이터를 불러와 렌더링.
+- 목록 조회: 카테고리별로 게시물 목록 표시.
+- 게시판 카테고리: 공지사항, 뉴스, 이벤트 등 카테고리 구분 가능.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 현재 진행 상황
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. 게시물 카테고리 및 글 조회에 대한 서버 연결 코드 구현 완료.
+2. UI 구성: 간단한 렌더링 화면만 구현. 다른 페이지와의 연결 작업은 진행하지 않음.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 추가 개발 계획
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 카테고리-목차-글 조화에 대한 흐름으로 ui 고칠 예정
+- 회원가입시 비밀번호에 대한 제한 ui 추가, 디바운싱 적용으로 사용자 경험 향상 ui 제작
+- 버튼 ui: 글작성과 같은 버튼은 아이콘으로 변경해서 눈에 더 잘 보이도록
+- 게시물 등록 성공시 페이지네이션 빠르게 개발해서 수정하기
+- 사용자 경험(UX)을 고려한 디자인 개선.
+- 반응형 디자인 적용.
+- 글 수정, 삭제 API와 클라이언트 연결.
+- 검색 및 정렬 기능 추가.
+- 테스트 및 배포
+- 기능별 테스트 코드 작성 및 디버깅.
+- 최종 배포 환경 설정.

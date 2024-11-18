@@ -1,0 +1,81 @@
+/* HomeMain CSS */
+
+/* Main content styling */
+.home-main {
+  padding: 20px 50px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column;
+}
+
+/* Heading styling */
+.home-main h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Post container styling */
+.post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* 부모의 너비를 100%로 설정 */
+}
+
+/* Add New Post button styling */
+.add-post {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  align-self: flex-end;
+}
+
+/* Pagination styling */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination .button {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination .button:hover {
+  background-color: #5a6268;
+}
+
+/* User info box styling */
+.info-box {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-box p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-box .button {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.info-box .button:hover {
+  background-color: #c82333;
+}
