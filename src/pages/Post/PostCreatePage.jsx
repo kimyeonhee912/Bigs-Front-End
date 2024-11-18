@@ -8,6 +8,7 @@ const PostCreatePage = () => {
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("NOTICE");
   const [errorMessage, setErrorMessage] = useState("");
+  const [file, setFile] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +20,21 @@ const PostCreatePage = () => {
     }
 
     try {
-      const requestData = { title, content, category };
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("content", content);
+      formData.append("category", category);
+      if (file) {
+        formData.append("file", file);
+      }
+
       const response = await axios.post(
         "https://front-mission.bigs.or.kr/boards",
-        requestData,
+        formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -35,6 +44,7 @@ const PostCreatePage = () => {
         setTitle("");
         setContent("");
         setCategory("NOTICE");
+        setFile(null);
         setErrorMessage("");
         alert("게시물이 성공적으로 작성되었습니다.");
       }
@@ -91,6 +101,18 @@ const PostCreatePage = () => {
             placeholder="내용을 입력하세요"
             rows="5"
             required
+          />
+        </div>
+
+        <div className="post-create-label-input">
+          <label className="post-create-label" htmlFor="file">
+            파일 업로드
+          </label>
+          <input
+            type="file"
+            id="file"
+            onChange={(e) => setFile(e.target.files[0])}
+            className="post-create-input"
           />
         </div>
 
